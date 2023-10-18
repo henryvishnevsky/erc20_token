@@ -1,5 +1,8 @@
 require("@nomiclabs/hardhat-waffle");
 require("dotenv").config();
+require("@nomicfoundation/hardhat-verify");
+
+
 const privateKeys = process.env.PRIVATE_KEYS || ""
 
 /** @type import('hardhat/config').HardhatUserConfig */
@@ -12,4 +15,9 @@ module.exports = {
       accounts: privateKeys.split(",")
     }
   },
+  etherscan: {
+    apiKey: {
+      sepolia: process.env.ETHERSCAN_API_KEY
+    }
+  } 
 };
